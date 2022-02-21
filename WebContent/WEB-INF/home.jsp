@@ -142,6 +142,7 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${listOfFriends}" var="user">
+                    
                         <tr>
                             <td>${user.name}</td>
                             <td>${user.email}</td>
