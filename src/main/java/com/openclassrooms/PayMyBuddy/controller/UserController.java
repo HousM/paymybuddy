@@ -8,17 +8,18 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.openclassrooms.PayMyBuddy.dto.ConnectionDTO;
 import com.openclassrooms.PayMyBuddy.dto.ContactsDTO;
 import com.openclassrooms.PayMyBuddy.model.User;
+import com.openclassrooms.PayMyBuddy.repository.Result;
 import com.openclassrooms.PayMyBuddy.service.IUserService;
 import com.openclassrooms.PayMyBuddy.util.LoginEmailRetriever;
 
-@RestController
+@Controller
 public class UserController {
 	/**
 	 * UserController logger.
@@ -31,8 +32,6 @@ public class UserController {
 
 	@Autowired
 	private IUserService userService;
-	private User user;
-
 	/**
 	 * LoginEmailRetriever instance.
 	 */
@@ -42,10 +41,10 @@ public class UserController {
 	 * Registers a new user.
 	 */
 	@PostMapping("/registration")
-	public ResponseEntity<User> registerUser(@Valid @RequestBody User user) {
+	public ResponseEntity<Result> registerUser(@Valid @RequestBody User user) {
 		LOGGER.debug("Registration request with username {}", user.getEmail());
 
-		User userSaved = userService.registerUser(user);
+		Result userSaved = userService.registerUser(user);
 
 		LOGGER.info("User registration request - SUCCESS");
 		return new ResponseEntity<>(userSaved, HttpStatus.CREATED);

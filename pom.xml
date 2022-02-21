@@ -30,6 +30,10 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
@@ -44,6 +48,22 @@
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
 		<dependency>
@@ -57,7 +77,11 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>4.6.0</version>
+		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -94,7 +118,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			
+
 			<!-- exclude *IT.java from unit tests -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -129,8 +153,8 @@
 					</execution>
 				</executions>
 			</plugin>
-			
-			
+
+
 			<!-- Run the JaCoCo ‘report’ goal during the Maven test phase -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
@@ -152,9 +176,8 @@
 					</execution>
 				</executions>
 			</plugin>
-			
-			
-			
+
+
 		</plugins>
 	</build>
 

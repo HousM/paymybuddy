@@ -55,7 +55,7 @@ public class BuddyAccount implements Serializable {
 	 * @param owner   user whose buddy account belong to
 	 * @param balance the credit balance of Buddy account
 	 */
-	public BuddyAccount(final User owner, final BigDecimal balance) {
+	public BuddyAccount(User owner, final BigDecimal balance) {
 		super();
 		this.owner = owner;
 		this.balance = balance;

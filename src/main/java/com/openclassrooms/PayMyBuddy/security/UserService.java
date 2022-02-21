@@ -44,7 +44,7 @@ public class UserService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		LOGGER.debug("Inside MyUserDetailsService.loadUserByUsername for username : " + email);
 
-		User user = userRepository.findByEmail(email);
+		User user = userRepository.getUser(email);
 
 		if (user == null) {
 			LOGGER.error("Invalid username or password");

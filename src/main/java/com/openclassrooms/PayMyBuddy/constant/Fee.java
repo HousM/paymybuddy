@@ -13,5 +13,5 @@ public class Fee {
 	/**
 	 * Transaction fee rate.
 	 */
-	public static BigDecimal FEE_RATE = new BigDecimal("0.005");
+	public BigDecimal FEE_RATE = new BigDecimal("0.005");
 }
