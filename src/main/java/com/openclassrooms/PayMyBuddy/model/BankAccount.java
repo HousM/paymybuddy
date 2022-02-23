@@ -11,16 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@Table(name = "bank_account")
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
-@Getter(AccessLevel.PUBLIC)
-@Setter(AccessLevel.PUBLIC)
+@DynamicUpdate
+@Table(name = "bankAccount")
 public class BankAccount implements Serializable {
 
 	/**

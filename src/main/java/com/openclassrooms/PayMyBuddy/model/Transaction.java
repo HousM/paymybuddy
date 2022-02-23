@@ -14,20 +14,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.DynamicUpdate;
 
 import com.openclassrooms.PayMyBuddy.constant.TransactionType;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 @Entity
+@DynamicUpdate
 @Table(name = "transaction")
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
-@Getter(AccessLevel.PUBLIC)
-@Setter(AccessLevel.PUBLIC)
 public class Transaction implements Serializable {
 
 	/**
@@ -41,7 +35,7 @@ public class Transaction implements Serializable {
 	/**
 	 * The type of transaction.
 	 */
-	@NotNull
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "type")
 	private TransactionType type;

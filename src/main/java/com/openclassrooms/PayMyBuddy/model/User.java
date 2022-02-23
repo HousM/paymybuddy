@@ -16,19 +16,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
+@DynamicUpdate
 @Table(name = "user")
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
-@Getter(AccessLevel.PUBLIC)
-@Setter(AccessLevel.PUBLIC)
-@ToString
-public class User implements Serializable {
+public class User implements Serializable, UserDetails {
 
 	/**
 	 * 
@@ -104,5 +99,76 @@ public class User implements Serializable {
 		this.email = email;
 		this.password = password;
 		this.phone = phone;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return null;
+	}
+
+	@Override
+	public String getPassword() {
+		return password;
+	}
+
+	@Override
+	public String getUsername() {
+		return email;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
+
+	public void setPassword(String pwd) {
+		this.password = pwd;
+	}
+
+	public void setFirstName(String firstname) {
+		this.firstName = firstname;
+	}
+
+	public void setLastName(String lastname) {
+		this.lastName = lastname;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setPhone() {
+
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getPhone() {
+		return phone;
 	}
 }

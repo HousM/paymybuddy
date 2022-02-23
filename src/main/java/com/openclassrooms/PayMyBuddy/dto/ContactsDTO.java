@@ -3,16 +3,14 @@ package com.openclassrooms.PayMyBuddy.dto;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
-@Getter(AccessLevel.PUBLIC)
-@Setter(AccessLevel.PUBLIC)
+import org.hibernate.annotations.DynamicUpdate;
+
+@Entity
+@DynamicUpdate
+@Table(name = "ContactsDTO")
 public class ContactsDTO {
 
 	/**
