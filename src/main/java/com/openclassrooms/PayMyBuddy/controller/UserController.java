@@ -34,7 +34,7 @@ public class UserController {
 		return "redirect:/transactions";
 	}
 
-	@GetMapping(value = "/profil")
+	@GetMapping(value = "/profile")
 	public String findUser(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (!(auth instanceof AnonymousAuthenticationToken)) {
@@ -43,7 +43,7 @@ public class UserController {
 			User user = userService.findByUserEmail(email);
 			model.addAttribute("userDetails", user);
 		}
-		return "profil";
+		return "profile";
 	}
 
 	@GetMapping(value = "/login")

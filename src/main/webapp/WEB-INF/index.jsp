@@ -3,13 +3,13 @@
 <html>
 <head>
     <title>PayMyBuddy</title>
-    <link rel="stylesheet" href="/css/main.css" rel="stylesheet"
+    <link rel="stylesheet" href="/main.css" rel="stylesheet"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
    
     .header {
         text-align: center;
-        background-image: url("/img/PayMyBuddy_Big.jpg");
+        background-image: url("/PayMyBuddy_Big.jpg");
         background-repeat: no-repeat;
         background-size: cover;
     }

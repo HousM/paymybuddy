@@ -3,7 +3,7 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>Login - PayMyBuddy</title>
-    <link rel="stylesheet" href="/css/main.css" rel="stylesheet"
+    <link rel="stylesheet" href="/main.css" rel="stylesheet"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         .login-form {
