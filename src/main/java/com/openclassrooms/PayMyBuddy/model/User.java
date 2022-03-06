@@ -3,7 +3,6 @@ package com.openclassrooms.PayMyBuddy.model;
 import java.io.Serializable;
 import java.util.Collection;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
@@ -71,14 +69,14 @@ public class User implements Serializable, UserDetails {
 	/**
 	 * Buddy account of the user.
 	 */
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "owner")
-	private BuddyAccount buddyAccount;
-
-	/**
-	 * Bank account of the user.
-	 */
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "owner")
-	private BankAccount bankAccount;
+//	@OneToOne(cascade = CascadeType.ALL, mappedBy = "owner")
+//	private BuddyAccount buddyAccount;
+//
+//	/**
+//	 * Bank account of the user.
+//	 */
+//	@OneToOne(cascade = CascadeType.ALL, mappedBy = "owner")
+//	private BankAccount bankAccount;
 
 	/**
 	 * Contacts of the user.

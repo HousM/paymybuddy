@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class paymybuddyApplication extends SpringBootServletInitializer {
+public class PayMyBuddyApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(paymybuddyApplication.class, args);
+		SpringApplication.run(PayMyBuddyApplication.class, args);
 	}
 
 }

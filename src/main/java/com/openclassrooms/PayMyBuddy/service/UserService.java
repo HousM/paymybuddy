@@ -2,7 +2,7 @@ package com.openclassrooms.PayMyBuddy.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,12 +12,15 @@ import com.openclassrooms.PayMyBuddy.model.User;
 import com.openclassrooms.PayMyBuddy.repository.UserRepository;
 
 @Service
-public abstract class UserService implements UserDetailsService {
+public class UserService implements UserDetailsService {
 
 	private static Logger LOGGER = LogManager.getLogger(UserService.class);
 
-	@Autowired
 	private UserRepository userRepository;
+
+	public UserService(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
 	private BCryptPasswordEncoder passwordEncoder;
 
@@ -66,6 +69,11 @@ public abstract class UserService implements UserDetailsService {
 		}
 
 		return user;
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		return userRepository.findByEmail(email);
 	}
 
 }

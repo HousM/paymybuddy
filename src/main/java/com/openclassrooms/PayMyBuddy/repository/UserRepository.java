@@ -10,9 +10,9 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
 	User findByEmail(String email);
 
-	@Override
-	@SuppressWarnings("unchecked")
-	User save(User user);
+//	@Override
+//	@SuppressWarnings("unchecked")
+//	User save(User user);
 
 	User getUser(String email);
 

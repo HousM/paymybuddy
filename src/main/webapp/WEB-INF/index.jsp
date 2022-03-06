@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,4 +26,4 @@
     <a class="btn btn-primary btn-outline-primary" href="register">Register</a>
 </div>
 </body>
-</html>
+</html> --%>

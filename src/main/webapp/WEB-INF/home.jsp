@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html xmlns:th="http:/www.thymeleaf.org">
 <head>
@@ -155,4 +155,4 @@
     </div>
 </section>
 </body>
-</html>
+</html> --%>

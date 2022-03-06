@@ -19,6 +19,10 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	public UserController(UserService userService) {
+		this.userService = userService;
+	}
+
 	@GetMapping(value = "/registration")
 	public String registration(Model model) {
 		return "registration";
