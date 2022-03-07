@@ -1,6 +1,5 @@
 package com.openclassrooms.PayMyBuddy.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,7 +15,7 @@ import com.openclassrooms.PayMyBuddy.service.UserService;
 
 @Controller
 public class UserController {
-	@Autowired
+
 	private UserService userService;
 
 	public UserController(UserService userService) {

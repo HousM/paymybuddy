@@ -18,6 +18,10 @@ public class UserService implements UserDetailsService {
 
 	private UserRepository userRepository;
 
+	public UserService() {
+
+	}
+
 	public UserService(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
@@ -32,7 +36,7 @@ public class UserService implements UserDetailsService {
 		String pwd = passwordEncoder.encode(user.getPassword());
 		user.setPassword(pwd);
 
-		User userFound = userRepository.getUser(user.getEmail());
+		User userFound = userRepository.findByEmail(user.getEmail());
 
 		if (userFound != null) {
 			throw new UsernameNotFoundException("Registration failed. The email provided may be registered " +
@@ -52,7 +56,7 @@ public class UserService implements UserDetailsService {
 
 	public User getUserByEmail(String email) {
 		LOGGER.debug("Inside UserService.getUserByEmail for email : " + email);
-		User user = userRepository.getUser(email);
+		User user = userRepository.findByEmail(email);
 		if (user == null) {
 			throw new UsernameNotFoundException("No user registered with this email");
 		}
