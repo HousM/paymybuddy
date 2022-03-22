@@ -28,12 +28,14 @@ public class UserController {
 	}
 
 	@PostMapping(value = "/newuser")
-	public String saveUser(@RequestParam("firstname") String firstname,
+	public String saveUser(@RequestParam("id") int id,
+			@RequestParam("firstname") String firstname,
 			@RequestParam("lastname") String lastname,
 			@RequestParam("email") String email,
 			@RequestParam("password") String password,
+			@RequestParam("pone") String phone,
 			Model model) {
-		userService.saveUser(firstname, lastname, email, password);
+		userService.saveUser(id, firstname, lastname, email, password, phone);
 		return "redirect:/transactions";
 	}
 

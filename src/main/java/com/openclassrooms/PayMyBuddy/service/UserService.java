@@ -28,13 +28,16 @@ public class UserService implements UserDetailsService {
 
 	private BCryptPasswordEncoder passwordEncoder;
 
-	public User saveUser(String firstname, String lastname, String email, String password) {
-		User user = new User(firstname, lastname, email, password, null);
+	public User saveUser(int id,String firstname, String lastname, String email, String password, String phone) {
+		User user = new User(id, firstname, lastname, email, password, phone);
+		
+		user.setId(id);
 		user.setFirstName(firstname);
 		user.setLastName(lastname);
 		user.setEmail(email);
 		String pwd = passwordEncoder.encode(user.getPassword());
 		user.setPassword(pwd);
+		user.setPhone();
 
 		User userFound = userRepository.findByEmail(user.getEmail());
 
@@ -45,7 +48,7 @@ public class UserService implements UserDetailsService {
 
 		User user1 = userRepository.save(user);
 
-		return new User(user1.getFirstName(), user1.getLastName(), user1.getEmail(), user1.getPassword(),
+		return new User(user1.getId(), user1.getFirstName(), user1.getLastName(), user1.getEmail(), user1.getPassword(),
 				user1.getPhone());
 
 	}

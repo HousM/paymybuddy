@@ -1,8 +1,11 @@
 package com.openclassrooms.PayMyBuddy.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,11 +15,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.DynamicUpdate;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+
 
 @Entity
 @DynamicUpdate
@@ -69,14 +75,14 @@ public class User implements Serializable, UserDetails {
 	/**
 	 * Buddy account of the user.
 	 */
-//	@OneToOne(cascade = CascadeType.ALL, mappedBy = "owner")
-//	private BuddyAccount buddyAccount;
-//
-//	/**
-//	 * Bank account of the user.
-//	 */
-//	@OneToOne(cascade = CascadeType.ALL, mappedBy = "owner")
-//	private BankAccount bankAccount;
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "owner")
+	private BuddyAccount buddyAccount;
+
+	/**
+	 * Bank account of the user.
+	 */
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "owner")
+	private BankAccount bankAccount;
 
 	/**
 	 * Contacts of the user.
@@ -85,18 +91,34 @@ public class User implements Serializable, UserDetails {
 	@JoinTable(name = "connect", joinColumns = @JoinColumn(name = "owner_id"), inverseJoinColumns = @JoinColumn(name = "buddy_id"))
 	private Collection<User> contacts;
 
+    private List<User> usersList = new ArrayList<>();
+
+
 	/**
 	 * Constructor of class User. Initialize firstName, lastName, email, password
 	 * and phone.
 	 * 
 	 */
-	public User(String firstName, String lastName, String email, String password,
+	public User(int id, String firstName, String lastName, String email, String password,
 			String phone) {
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.phone = phone;
+	}
+	
+	public User(BankAccount bankAccount) {
+		this.bankAccount = bankAccount;
+	}
+	
+	public BankAccount getBankAccount () {
+		return bankAccount;
+	}
+	
+	public BankAccount setBankAccount (BankAccount bankAccount) {
+		return this.bankAccount=bankAccount;
 	}
 
 	@Override
@@ -132,6 +154,13 @@ public class User implements Serializable, UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+	public int getId() {
+	return id;
+	}
+	
+	public int setId(int id) {
+	return this.id=id;
 	}
 
 	public void setPassword(String pwd) {
@@ -169,4 +198,12 @@ public class User implements Serializable, UserDetails {
 	public String getPhone() {
 		return phone;
 	}
+	
+    public List<User> getUsersList() {
+        return usersList;
+    }
+
+    public void setUsersList(List<User> usersList) {
+        this.usersList = usersList;
+    }
 }
