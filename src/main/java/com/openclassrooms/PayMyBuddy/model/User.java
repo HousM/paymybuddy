@@ -91,7 +91,7 @@ public class User implements Serializable, UserDetails {
 	@JoinTable(name = "connect", joinColumns = @JoinColumn(name = "owner_id"), inverseJoinColumns = @JoinColumn(name = "buddy_id"))
 	private Collection<User> contacts;
 
-    private List<User> usersList = new ArrayList<>();
+
 
 
 	/**
@@ -199,11 +199,5 @@ public class User implements Serializable, UserDetails {
 		return phone;
 	}
 	
-    public List<User> getUsersList() {
-        return usersList;
-    }
 
-    public void setUsersList(List<User> usersList) {
-        this.usersList = usersList;
-    }
 }

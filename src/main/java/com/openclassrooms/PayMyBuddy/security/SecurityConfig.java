@@ -28,10 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	private UserService userService;
 
-	/**
-	 * ObjectMapper instance.
-	 */
-	private final ObjectMapper objectMapper;
+
 
 	/**
 	 * Constructor of class SecurityConfiguration. Initialize userDetailsService and
@@ -40,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	public SecurityConfig(UserService userService, ObjectMapper objectMapper) {
 		this.userService = userService;
-		this.objectMapper = objectMapper;
+
 	}
 
 	/**
@@ -78,57 +75,53 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.authenticated()
 				.and().formLogin()
 				.loginProcessingUrl("/login") // the URL on which the clients should post the login information
-				.successHandler(this::loginSuccessHandler)
-				.failureHandler(this::loginFailureHandler)
+//				.successHandler(this::loginSuccessHandler)
+//				.failureHandler(this::loginFailureHandler)
 				.and()
 				.logout()
 				.logoutUrl("/logout") // the URL on which the clients should post if they want to logout
-				.logoutSuccessHandler(this::logoutSuccessHandler)
+//				.logoutSuccessHandler(this::logoutSuccessHandler)
 				.invalidateHttpSession(true)
 				.and()
-				.exceptionHandling()
-				.authenticationEntryPoint(this::authenticationEntryPointHandler);
+				.exceptionHandling();
+//				.authenticationEntryPoint(this::authenticationEntryPointHandler);
 	}
 
 	/**
 	 * Handles login success.
 	 */
-	private void loginSuccessHandler(HttpServletRequest request, HttpServletResponse response,
-			Authentication authentication) throws IOException {
-
-		response.setStatus(HttpStatus.OK.value());
-		objectMapper.writeValue(response.getWriter(), "You are now logged in to Pay my Buddy!");
-	}
+//	private void loginSuccessHandler(HttpServletRequest request, HttpServletResponse response,
+//			Authentication authentication) throws IOException {
+//
+//		response.setStatus(HttpStatus.OK.value());
+//		}
 
 	/**
 	 * Handles login failure.
 	 * 
 	 */
-	private void loginFailureHandler(HttpServletRequest request, HttpServletResponse response,
-			AuthenticationException e) throws IOException {
-
-		response.setStatus(HttpStatus.UNAUTHORIZED.value());
-		objectMapper.writeValue(response.getWriter(), "The email or password you entered is incorrect.");
-	}
+//	private void loginFailureHandler(HttpServletRequest request, HttpServletResponse response,
+//			AuthenticationException e) throws IOException {
+//
+//		response.setStatus(HttpStatus.UNAUTHORIZED.value());
+//		}
 
 	/**
 	 * Handles logout success.
 	 * 
 	 */
-	private void logoutSuccessHandler(HttpServletRequest request, HttpServletResponse response,
-			Authentication authentication) throws IOException {
-
-		response.setStatus(HttpStatus.OK.value());
-		objectMapper.writeValue(response.getWriter(), "You have successfully logged out!");
-	}
+//	private void logoutSuccessHandler(HttpServletRequest request, HttpServletResponse response,
+//			Authentication authentication) throws IOException {
+//
+//		response.setStatus(HttpStatus.OK.value());
+//		}
 
 	/**
 	 * Handles authenticationEntryPoint.
 	 * 
 	 */
-	private void authenticationEntryPointHandler(HttpServletRequest request, HttpServletResponse response,
-			AuthenticationException e) throws IOException {
-		response.setStatus(HttpStatus.FORBIDDEN.value());
-		objectMapper.writeValue(response.getWriter(), "You have to logged in first!");
-	}
+//	private void authenticationEntryPointHandler(HttpServletRequest request, HttpServletResponse response,
+//		AuthenticationException e) throws IOException {
+//		response.setStatus(HttpStatus.FORBIDDEN.value());
+//		}
 }

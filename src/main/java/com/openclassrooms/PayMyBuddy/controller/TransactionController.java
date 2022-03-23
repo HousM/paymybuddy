@@ -90,8 +90,8 @@ public class TransactionController {
                 UserDetails userDetails = (UserDetails) auth.getPrincipal();
                 String email = userDetails.getUsername();
                 User user2 = userService.findByUserEmail(email);
-                List<User> userFriends = user2.getUsersList();
-                model.addAttribute("userfriends",userFriends);
+//                List<User> userFriends = user2.getUsersList();
+//                model.addAttribute("userfriends",userFriends);
                 List<Transaction> transactionList = transactionService.findByUser(user);
                 model.addAttribute("transaction",transactionList);
             }

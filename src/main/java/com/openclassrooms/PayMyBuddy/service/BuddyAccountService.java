@@ -25,10 +25,10 @@ public class BuddyAccountService {
 	 * Constructor of class BuddyAccountService. Initialize buddyAccountRepository.
 	 * 
 	 */
-	@Autowired
 	public BuddyAccountService(BuddyAccountRepository buddyAccountRepository) {
 		this.buddyAccountRepository = buddyAccountRepository;
 	}
+	public BuddyAccountService() {}
 
 	/**
 	 * Saves BuddyAccount by calling buddyAccountRepository's save method.

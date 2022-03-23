@@ -33,12 +33,14 @@ public class BankAccountService {
 	 * userService.
 	 * 
 	 */
-	@Autowired
+
 	public BankAccountService(BankAccountRepository bankAccountRepository, UserService userService) {
 		this.bankAccountRepository = bankAccountRepository;
 		this.userService = userService;
 	}
-
+	
+	public BankAccountService() {}
+	
 
 	public BankAccount createBankAccount(String ownerEmail, BankAccount bankAccount) {
 		LOGGER.debug("Inside BankAccountService.createBankAccount for username : " + ownerEmail);
