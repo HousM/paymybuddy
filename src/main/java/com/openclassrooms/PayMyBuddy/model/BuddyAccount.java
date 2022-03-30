@@ -44,8 +44,6 @@ public class BuddyAccount implements Serializable {
 	@Column(name = "balance", nullable = false)
 	private float balance;
 
-	private String rib;
-
 	/**
 	 * Constructor of class BuddyAccount. Initialize owner and balance.
 	 *

@@ -14,12 +14,12 @@
         <div id="liens" style="float: right">
             <a href="/login">Home</a>
             <a href="/transactions">Transfert</a>
-            <a href="/profile">Profile</a>
+            <a href="/profil">Profil</a>
             <a href="/contact">Contact</a>
             <a href="/logoff">Log off</a></br>
         </div>
     </section>
-    <p id="pages">Home / Profile</p>
+    <p id="pages">Home / Profil</p>
 </header>
 <body>
 <h5>My Profile</h5>

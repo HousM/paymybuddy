@@ -34,8 +34,8 @@ public class BuddyAccountService {
 	 * Saves BuddyAccount by calling buddyAccountRepository's save method.
 	 * 
 	 */
-	public BuddyAccount saveBuddyAccount(BuddyAccount buddyAccount) {
+	public BuddyAccount saveBuddyAccount(Long id) {
 		LOGGER.debug("Inside BuddyAccountService.saveBuddyAccount");
-		return buddyAccountRepository.save(buddyAccount);
+		return buddyAccountRepository.findBuddyAccountById(id);
 	}
 }

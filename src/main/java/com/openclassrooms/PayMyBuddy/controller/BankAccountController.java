@@ -69,7 +69,7 @@ public class BankAccountController {
 		LOGGER.debug("Bank account POST request with IBAN {} and BIC {}", bankAccount.getIban(),
 				bankAccount.getBic());
 
-		String ownerEmail = loginEmailRetriever.getUsername(request);
+		String ownerEmail = loginEmailRetriever.getUserName(request);
 
 		BankAccount bankAccount1 = bankAccountService.createBankAccount(ownerEmail, bankAccount);
 

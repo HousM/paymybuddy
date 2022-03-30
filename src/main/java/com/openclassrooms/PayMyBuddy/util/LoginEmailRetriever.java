@@ -10,7 +10,7 @@ public class LoginEmailRetriever {
 
 	private static Logger LOGGER = LogManager.getLogger(LoginEmailRetriever.class);
 
-	public String getUsername(HttpServletRequest request) {
+	public String getUserName(HttpServletRequest request) {
 		LOGGER.debug("LoginEmailRetriever.getUsername with username : " + request.getUserPrincipal().getName());
 
 		String username = request.getUserPrincipal().getName();

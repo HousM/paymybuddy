@@ -64,7 +64,7 @@ public class TransactionController {
 			HttpServletRequest request) throws Exception {
 		LOGGER.debug("Transfer request with amount {}", transfer.getAmount());
 
-		String ownerEmail = loginEmailRetriever.getUsername(request);
+		String ownerEmail = loginEmailRetriever.getUserName(request);
 
 		if (transfer.getAmount() == 0 ) {
 			throw new Exception("Amount is required");
